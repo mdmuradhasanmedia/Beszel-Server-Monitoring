@@ -89,7 +89,7 @@
     <h2 class="mt-5">Step 4: Install the Agent</h2>
     <p>On your server, connect via SSH and paste the copied installation command into the terminal:</p>
     <div class="code-block">
-      <code id="command3">install-agent.sh && ./install-agent.sh -p 45876 -k "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHq+HgsmMu8s1ugJwvygli0+n3RanqZ9BGpKKK7TSx/2"</code>
+      <code id="command3">install-agent.sh && ./install-agent.sh -p 45876 -k "<Public Key>"</code>
       <button class="copy-btn" data-clipboard-target="#command3">Copy</button>
     </div>
     <p>During installation, type <strong>‘y’</strong> and press <strong>Enter</strong> to enable automatic daily updates for the agent.</p>
@@ -105,6 +105,7 @@
       <ul class="mb-0">
         <li>Replace <code>&lt;SERVER-IP-ADDRESS&gt;</code> with your actual server IP address.</li>
         <li>Ensure the port (45876) is not blocked by any firewall on your servers.</li>
+        <li>Replace <code>&lt;Public-Key&gt;</code> with your Public Key.</li>
       </ul>
     </div>
   </div>

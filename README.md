@@ -13,8 +13,8 @@ You can either follow the **web-based manual** or use the instructions below.
 
 Once GitHub Pages is enabled, you can view the user manual here:
 
-👉 **https://yourusername.github.io/agent-manual/**  
-*(Replace `yourusername` with your actual GitHub username)*
+👉 **[https://yourusername.github.io/agent-manual/](https://mdmuradhasanmedia.github.io/Beszel-Server-Monitoring/)**  
+
 
 ---
 

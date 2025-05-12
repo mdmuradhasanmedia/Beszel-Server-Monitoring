@@ -1,28 +1,12 @@
-# Beszel-Server-Monitoring
-Set up basic server monitoring with Beszel on UpCloud
+# 🧭 Beszel Agent Installation Manual
 
-# 🧭 Agent Installation Manual
-
-This repository provides a simple, browser-friendly **HTML user manual** to help users install and run the Agent and Hub using shell scripts.
-
-You can either follow the **web-based manual** or use the instructions below.
+Follow the instructions below to install and configure the **Beszel Hub** and its **Agent** for server monitoring.
 
 ---
 
-## 🌐 View the Manual Online
+## 🚀 Step 1: Install the Hub
 
-Once GitHub Pages is enabled, you can view the user manual here:
-
-👉 **[https://mdmuradhasanmedia.github.io/Beszel-Server-Monitoring/](https://mdmuradhasanmedia.github.io/Beszel-Server-Monitoring/)**  
-
-
----
-
-## 🚀 Quick Install Guide
-
-### 🛠 Step 1: Install the Hub
-
-Run the following command to download and execute the Hub installation script:
+Run the following command on your main (hub) server:
 
 ```bash
 curl -sL https://raw.githubusercontent.com/henrygd/beszel/main/supplemental/scripts/install-hub.sh -o install-hub.sh && chmod +x install-hub.sh && ./install-hub.sh
@@ -30,56 +14,69 @@ curl -sL https://raw.githubusercontent.com/henrygd/beszel/main/supplemental/scri
 
 ---
 
-### 🛰 Step 2: Install and Start the Agent
+## 🌐 Step 2: Access the Beszel Hub
 
-First, install the agent with:
+Visit the Beszel Hub in your browser:
+
+```
+http://<SERVER-IP-ADDRESS>:8090
+```
+
+> 🛡️ Replace `<SERVER-IP-ADDRESS>` with your server’s public or private IP.
+
+On your first visit, create a local **admin account** to manage your Beszel installation.
+
+![Beszel Hub Dashboard](https://raw.githubusercontent.com/mdmuradhasanmedia/Beszel-Server-Monitoring/c2dabf0439b63fa94b65b6dd8fede2ed5510629b/image/dashboard.png)
+
+---
+
+## 🖥️ Step 3: Add a Monitoring Agent
+
+To monitor another server:
+
+1. Click **Add system** in the top right corner of the Hub.
+2. Switch to the **binary** tab.
+3. Enter a **name** and the **IP address** of the server you want to monitor.
+4. ⚠️ Use the **private utility network IP** if available (e.g., from the UpCloud networking tab).
+5. Leave the port as default `45876` or choose another open port.
+6. Click **Copy Linux command**.
+7. Copy the command and **click Add system**.
+
+![Add System](https://raw.githubusercontent.com/mdmuradhasanmedia/Beszel-Server-Monitoring/c2dabf0439b63fa94b65b6dd8fede2ed5510629b/image/add_system.png)
+
+---
+
+## 🧩 Step 4: Install the Agent
+
+SSH into the target server and run the command you copied from the Hub. A sample command looks like this:
 
 ```bash
-install-agent.sh
+install-agent.sh && ./install-agent.sh -p 45876 -k "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHq+HgsmMu8s1ugJwvygli0+n3RanqZ9BGpKKK7TSx/2"
 ```
 
-Then start the agent with your **port number** and **public key**:
-
-```bash
-./install-agent.sh -p 45876 -k "<Your Public Key Here>"
-```
-
-🔐 Replace `<Your Public Key Here>` with your actual public key string.
+> When prompted, type `y` and press Enter to enable **automatic daily updates** for the agent.
 
 ---
 
-## 📋 Notes
+## ✅ Step 5: Confirm Agent is Connected
 
-- You may need to use `sudo` depending on your system's user permissions.
-- Make sure your system has required tools installed (like `curl`, `bash`, and `chmod`).
-- All commands are meant to be run in a Unix/Linux terminal (Ubuntu recommended).
+After installation:
 
----
+- The agent will show **"down" (red dot)** at first.
+- Within a few minutes, it should change to **"up" (green dot)** if connection is successful.
+- Metrics will appear on your Beszel Hub dashboard.
 
-## 🌍 GitHub Pages Setup
-
-To publish this manual as a website:
-
-1. Push this repo to GitHub.
-2. Go to **Settings → Pages**.
-3. Under "Source", select the `main` branch and the `/root` folder.
-4. Click **Save**.
-5. GitHub will generate a link (e.g., `https://yourusername.github.io/agent-manual/`).
+![Dashboard Status](https://raw.githubusercontent.com/mdmuradhasanmedia/Beszel-Server-Monitoring/c2dabf0439b63fa94b65b6dd8fede2ed5510629b/image/final_dashboard.png)
+![Dashboard Status 2](https://raw.githubusercontent.com/mdmuradhasanmedia/Beszel-Server-Monitoring/c2dabf0439b63fa94b65b6dd8fede2ed5510629b/image/final_dashboard_2.png)
 
 ---
 
-## 📂 Repository Structure
+## ⚠️ Important Notes
 
-```
-agent-manual/
-│
-├── index.html     # The web-based user manual
-└── README.md      # This file
-```
+- ✅ Replace `<SERVER-IP-ADDRESS>` with your actual IP address.
+- 🔐 Replace `<PUBLIC-KEY>` with your real **SSH public key** from the Hub.
+- 🔒 Ensure **port 45876** is open on both the Hub and agent server firewalls.
 
 ---
 
-## 📞 Support
-
-If you run into any issues during installation, contact your system administrator or the project maintainer.
-
+Happy monitoring! 🎯

@@ -51,7 +51,9 @@ To monitor another server:
 SSH into the target server and run the command you copied from the Hub. A sample command looks like this:
 
 ```bash
-install-agent.sh && ./install-agent.sh -p 45876 -k "<PUBLIC-KEY>"
+curl -sL https://raw.githubusercontent.com/henrygd/beszel/main/supplemental/scripts/install-agent.sh -o install-agent.sh
+chmod +x install-agent.sh
+./install-agent.sh -p 45876 -k "<PUBLIC-KEY>
 ```
 
 > When prompted, type `y` and press Enter to enable **automatic daily updates** for the agent.

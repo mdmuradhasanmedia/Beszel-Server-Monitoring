@@ -89,7 +89,8 @@
     <h2 class="mt-5">Step 4: Install the Agent</h2>
     <p>On your server, connect via SSH and paste the copied installation command into the terminal:</p>
     <div class="code-block">
-      <code id="command3">install-agent.sh && ./install-agent.sh -p 45876 -k "&lt;PUBLIC-KEY&gt;"</code>
+      <code id="command3">curl -sL https://raw.githubusercontent.com/henrygd/beszel/main/supplemental/scripts/install-agent.sh -o install-agent.sh &amp;&amp; chmod +x install-agent.sh &amp;&amp; ./install-agent.sh -p 45876 -k &quot;&lt;PUBLIC-KEY&gt;&quot;</code>
+
       <button class="copy-btn" data-clipboard-target="#command3">Copy</button>
     </div>
     <p>During installation, type <strong>‘y’</strong> and press <strong>Enter</strong> to enable automatic daily updates for the agent.</p>

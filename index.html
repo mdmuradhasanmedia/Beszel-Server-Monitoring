@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Manual - Agent Installer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 40px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #333;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .command {
+      background: #222;
+      color: #0f0;
+      padding: 10px;
+      font-family: monospace;
+      border-radius: 5px;
+      margin-bottom: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Agent Installation Manual</h1>
+  <p>This page provides instructions to install the Agent using the provided scripts.</p>
+
+  <h2>Step 1: Download and Run the Hub Installer</h2>
+  <p>Run the following command in your terminal:</p>
+  <pre class="command">curl -sL https://raw.githubusercontent.com/henrygd/beszel/main/supplemental/scripts/install-hub.sh -o install-hub.sh &amp;&amp; chmod +x install-hub.sh &amp;&amp; ./install-hub.sh</pre>
+
+  <h2>Step 2: Install and Start the Agent</h2>
+  <p>Run the following commands one by one:</p>
+  <pre class="command">install-agent.sh</pre>
+  <p>Then, start the agent with your assigned port and public key:</p>
+  <pre class="command">./install-agent.sh -p 45876 -k "&lt;Your Public Key Here&gt;"</pre>
+
+  <h3>Note:</h3>
+  <ul>
+    <li>Replace <code>&lt;Your Public Key Here&gt;</code> with the actual public key provided to you.</li>
+    <li>Make sure you run these commands as a user with proper permissions (sudo if necessary).</li>
+  </ul>
+</body>
+</html>

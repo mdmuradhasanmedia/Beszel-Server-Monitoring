@@ -8,25 +8,65 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #f9f9f9;
-      padding: 40px;
+      padding: 20px;
       line-height: 1.6;
+      margin: 0;
     }
-    h1 {
+
+    h1, h2, h3 {
       color: #333;
+      margin-top: 1.5em;
     }
-    pre {
-      background-color: #eee;
-      padding: 10px;
-      border-radius: 5px;
-      overflow-x: auto;
+
+    p, li {
+      font-size: 1rem;
+      color: #444;
     }
-    .command {
-      background: #222;
+
+    pre.command {
+      background-color: #222;
       color: #0f0;
-      padding: 10px;
+      padding: 12px;
+      border-radius: 6px;
       font-family: monospace;
-      border-radius: 5px;
-      margin-bottom: 1em;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-x: auto;
+      margin: 1em 0;
+    }
+
+    ul {
+      padding-left: 1.2em;
+    }
+
+    code {
+      background: #e0e0e0;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 1.6em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      h3 {
+        font-size: 1.1em;
+      }
+
+      pre.command {
+        font-size: 0.9em;
+        padding: 10px;
+      }
     }
   </style>
 </head>
@@ -36,7 +76,7 @@
 
   <h2>Step 1: Download and Run the Hub Installer</h2>
   <p>Run the following command in your terminal:</p>
-  <pre class="command">curl -sL https://raw.githubusercontent.com/henrygd/beszel/main/supplemental/scripts/install-hub.sh -o install-hub.sh &amp;&amp; chmod +x install-hub.sh &amp;&amp; ./install-hub.sh</pre>
+  <pre class="command">curl -sL https://raw.githubusercontent.com/henrygd/beszel/main/supplemental/scripts/install-hub.sh -o install-hub.sh && chmod +x install-hub.sh && ./install-hub.sh</pre>
 
   <h2>Step 2: Install and Start the Agent</h2>
   <p>Run the following commands one by one:</p>
